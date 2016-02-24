@@ -1,22 +1,55 @@
 <!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8" >
-		<title>This is a test app（测试一下中文）</title>
-		<style>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>例子</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/normalize.min.css" /><!-- // 这里引入全局的css或者CDN资源 -->
+        <style>
 		.testclzz{
 			font-size:12px;
 			/* 备注 */
 			}</style>
-	</head>
-	<!-- // This is a 备注 -->
-	<body>This is index.html ....『中文』 "特殊字符＆★"
-	<img src="./assets/only copy.gif" />
-	<script>
-		var body = document.querySelector('body');
-			// Test
-			/*** test */
-		console.log(body);
-	</script>
-	</body>
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <p>Hello world! This is HTML5 Boilerplate.</p>
+        <p>在构建发布版本的时候，备注将会被移除，内联的style以及script将被压缩，多个空格也会被压缩为单个空格，最终的HTML也会被压缩</p>
+        This is index.html ....『中文』 "特殊字符＆★"
+		<img src="./assets/only copy.gif" /> <!-- // 所有不需要开发工具原封不动保留的资源，都放到assets/目录下面 -->
+		<script>
+			var body = document.querySelector('body');
+				// Test
+				/*** test */
+			console.log(body);
+		</script>
+		<!-- // This is a 备注(打包的时候备注会被自动移除) -->
+		<!--
+		// js CDN引入写法
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" ></script>
+		<script>
+		if(!window.jQuery){ // 如果CDN未获取到，使用本地资源
+			document.write('<script src="./assets/jquery.min.js ></script>');
+		}
+		// 百度提供了大量免费CDN资源，详见：http://cdn.code.baidu.com/
+		</script>
+		-->
+		<!--
+		// 打包生成的js文件不用在HTML中体现，开发工具会自动将打包后的资源加入到<body />的最后
+		e.q:
+		<script src="./main.js?725aea87e82883a38dbe" ></script> // DEBUG形式
+		or
+		<script src="./main.725aea87e82883a38dbe.js" ></script> // 生产版本
+		-->
+    </body>
 </html>
