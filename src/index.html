@@ -6,7 +6,7 @@
         <title>例子</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./assets/normalize.min.css" /><!-- // 这里引入全局的css或者CDN资源 -->
+        <link rel="stylesheet" href="http://libs.cdnjs.net/normalize/3.0.1/normalize.min.css" />
         <style>
 		.testclzz{
 			font-size:12px;
@@ -26,7 +26,6 @@
         <p>Hello world! This is HTML5 Boilerplate.</p>
         <p>在构建发布版本的时候，备注将会被移除，内联的style以及script将被压缩，多个空格也会被压缩为单个空格，最终的HTML也会被压缩</p>
         This is index.html ....『中文』 "特殊字符＆★"
-		<img src="./assets/only copy.gif" /> <!-- // 所有不需要开发工具原封不动保留的资源，都放到assets/目录下面 -->
 		<script>
 			var body = document.querySelector('body');
 				// Test
@@ -36,12 +35,13 @@
 		<!-- // This is a 备注(打包的时候备注会被自动移除) -->
 		<!--
 		// js CDN引入写法
-		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" ></script>
+		<script src="http://libs.cdnjs.net/jquery/2.1.1/jquery.min.js" ></script>
 		<script>
-		if(!window.jQuery){ // 如果CDN未获取到，使用本地资源
-			document.write('<script src="./assets/jquery.min.js ></script>');
-		}
-		// 百度提供了大量免费CDN资源，详见：http://cdn.code.baidu.com/
+		//
+		// if(!window.jQuery){ // 如果CDN未获取到，使用本地资源
+		// 	document.write('<script src="./assets/jquery.min.js ></script>');
+		//}
+		// upyun提供了大量免费CDN资源，详见：http://cdnjs.net/
 		</script>
 		-->
 		<!--
