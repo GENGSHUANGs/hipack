@@ -123,7 +123,7 @@ const clientConfig = merge({}, config, {
 	devtool: DEBUG ? 'cheap-module-eval-source-map' : false,
 	plugins: [
 		new webpack.DefinePlugin(GLOBALS),
-		new ExtractTextPlugin("[name].css",{
+		new ExtractTextPlugin(DEBUG ? '[name].css?[hash]' : '[name].[hash].css',{
 			remove:true
 		}),
 		new AssetsPlugin({
