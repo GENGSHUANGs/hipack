@@ -59,6 +59,6 @@ server.use(express.static(path.join(__dirname, '/')));
 // Launch the server
 // -----------------------------------------------------------------------------
 server.listen(port, () => {
-  /* eslint-disable no-console */
-  console.log(`The server is running at http://localhost:${port}/`);
+	/* eslint-disable no-console */
+	console.log(`The server is running at http://localhost:${port}/`);
 });
