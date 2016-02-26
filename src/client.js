@@ -9,13 +9,15 @@
 
 import 'babel-core/polyfill';
 import React from 'react';
+import ReactDOM from 'react-dom';
+console.log(ReactDOM);
 import Box from './component/Box';
 let s = require('./index.scss');
 
 require('./b');
 
 function run(){
-	React.render(<Box />,document.getElementById('app'));
+	ReactDOM.render(<Box />,document.getElementById('app'));
 }
 
 // Run the application when both DOM is ready and page content is loaded
