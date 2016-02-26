@@ -10,19 +10,18 @@
 import 'babel-core/polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-console.log(ReactDOM);
+import fetch from './core/fetch';
 import Box from './component/Box';
 let s = require('./index.scss');
 
-require('./b');
-
-function run(){
+async function run(){
 	ReactDOM.render(<Box />,document.getElementById('app'));
+	let resp = await fetch('./assets/test.json');
+	console.log('test.json >:',await resp.json());
 }
 
-// Run the application when both DOM is ready and page content is loaded
 if (['complete', 'loaded', 'interactive'].includes(document.readyState) && document.body) {
-  run();
+	run();
 } else {
-  document.addEventListener('DOMContentLoaded', run, false);
+	document.addEventListener('DOMContentLoaded', run, false);
 }
