@@ -1,8 +1,20 @@
 {
-  "private": true,
+  "name": "antd",
+  "version": "0.12.0",
+  "title": "Hipack",
+  "description": "一个前端开发环境",
+  "homepage": "https://github.com/GENGSHUANGs/hipack",
+  "private": false,
   "engines": {
     "node": ">=5.0 <6",
     "npm": ">=3.3 <4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GENGSHUANGs/hipack"
+  },
+  "bugs": {
+    "url": "https://github.com/GENGSHUANGs/hipack/issues"
   },
   "dependencies": {
     "antd": "^0.12.0",
@@ -36,6 +48,7 @@
     "babel-loader": "^5.4.0",
     "babel-plugin-react-transform": "^1.1.1",
     "browser-sync": "^2.10.1",
+    "commander": "^2.9.0",
     "css-loader": "^0.23.0",
     "csscomb": "^3.1.8",
     "del": "^2.2.0",
@@ -60,11 +73,14 @@
     "postcss-import": "^7.1.3",
     "postcss-loader": "^0.8.0",
     "precss": "^1.3.0",
+    "progress-stream": "^1.2.0",
     "raw-loader": "^0.5.1",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.2.0",
     "replace": "^0.3.0",
+    "request": "^2.69.0",
+    "unzip": "^0.1.11",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-hot-middleware": "^2.6.0",

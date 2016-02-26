@@ -1,0 +1,31 @@
+var path = require('path'),fs = require('fs');
+var del = require('del');
+var request = require('request');
+var unzip = require('unzip');
+var colors = require('colors');
+var progress = require('progress-stream');
+
+var str = progress({
+	time: 10
+});
+
+str.on('progress', function(progress) {
+});
+
+var tempDir = path.join(process.cwd(),'__extract/');
+del([tempDir + '/**']);
+
+var url = 'https://github.com/GENGSHUANGs/hipack-package/archive/master.zip';
+console.log(colors.green.underline(url));
+request.get(url)
+.pipe(str)
+.pipe(unzip.Parse()).on('entry',function(entry){
+	var dist = path.join(tempDir,entry.path.substring(entry.path.indexOf('/')));
+	console.log(colors.underline(dist));
+	if(entry.type === 'Directory'){
+		fs.mkdirSync(dist);
+		entry.autodrain();
+		return ;
+	}
+	entry.pipe(fs.createWriteStream(dist));
+});
