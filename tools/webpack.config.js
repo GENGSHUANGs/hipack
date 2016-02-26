@@ -73,7 +73,7 @@ const config = {
 					path.resolve(__dirname, '../node_modules/react-routing/src'),
 					path.resolve(__dirname, '../src'),
 				],
-				loader: 'babel-loader',
+				loader: 'babel-loader'
 			}, {
 				test: /\.scss$/,
 				loader: ExtractTextPlugin.extract(
