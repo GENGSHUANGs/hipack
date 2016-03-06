@@ -70,8 +70,8 @@ const config = {
 			{
 				test: /\.jsx?$/,
 				include: [
-					path.resolve(__dirname, '../node_modules/react-routing/src'),
-					path.resolve(__dirname, '../src'),
+					path.resolve(global.cwd, 'node_modules/react-routing/src/'),
+					path.resolve(global.cwd, 'src/'),
 				],
 				loader: 'babel-loader'
 			}, {
@@ -112,9 +112,9 @@ const config = {
 // -----------------------------------------------------------------------------
 
 const clientConfig = merge({}, config, {
-	entry: ['./src/client.js'],
+	entry: [path.join(global.cwd,'src/client.js')],
 	output: {
-		path: path.join(__dirname, '../build/'),
+		path: path.join(global.cwd, 'build/'),
 		filename: DEBUG ? '[name].js?[hash]' : '[name].[hash].js',
 	},
 
@@ -127,14 +127,14 @@ const clientConfig = merge({}, config, {
 			remove:true
 		}),
 		new AssetsPlugin({
-			path: path.join(__dirname, '../build'),
+			path: path.join(global.cwd, 'build/'),
 			filename: 'assets.js',
 			processOutput: x => `module.exports = ${JSON.stringify(x)};`,
 		}),
 		new HtmlWebpackPlugin({
 			inject:'body',
 			showErrors:DEBUG,
-			template:'./src/index.html',
+			template:path.join(global.cwd,'src/index.html'),
 			minify:{
 				removeComments:!DEBUG,
 				removeCommentsFromCDATA:!DEBUG,
@@ -180,9 +180,9 @@ const clientConfig = merge({}, config, {
 // -----------------------------------------------------------------------------
 
 const serverConfig = merge({}, config, {
-	entry: './src/server.js',
+	entry: path.join(global.cwd,'src/server.js'),
 	output: {
-		path: './build',
+		path: path.join(global.cwd,'build/'),
 		filename: 'server.js',
 		libraryTarget: 'commonjs2',
 	},

@@ -90,7 +90,7 @@ async function start() {
 
 						// no need to watch '*.js' here, webpack will take care of it for us,
 						// including full page reloads if HMR won't work
-						files: ['build/xxxindex.html'],
+						files: ['build/index.html'],
 					}, resolve);
 					handleServerBundleComplete = runServer;
 				}

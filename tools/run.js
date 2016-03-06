@@ -20,6 +20,7 @@ async function run(fn, options) {
 	console.log(`[${format(end)}] Finished '${fn.name}' after ${time} ms`);
 }
 
+global.cwd = process.argv[process.argv.indexOf('--cwd') + 1];
 if (process.mainModule.children.length === 0 && process.argv.length > 2) {
 	delete require.cache[__filename];
 	const module = process.argv[2];

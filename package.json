@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/GENGSHUANGs/hipack/issues"
   },
-  "devDependencies": {
+  "dependencies": {
     "assets-webpack-plugin": "^3.2.0",
     "autoprefixer": "^6.1.2",
     "babel": "^5.8.34",

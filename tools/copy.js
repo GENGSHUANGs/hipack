@@ -20,26 +20,26 @@ async function copy({ watch } = {}) {
 	const ncp = Promise.promisify(require('ncp'));
 
 	await Promise.all([
-		ncp('src/assets', 'build/assets'),
+		ncp(path.join(global.cwd,'src/assets/'), path.join(global.cwd,'build/assets/')),
 		// ncp('src/content', 'build/content'),
-		ncp('package.json', 'build/package.json'),
+		ncp(path.join(global.cwd,'package.json'), path.join(global.cwd,'build/package.json')),
 	]);
 
 	replace({
 		regex: '"start".*',
 		replacement: '"start": "node server.js"',
-		paths: ['build/package.json'],
+		paths: [path.join(global.cwd,'build/package.json')],
 		recursive: false,
 		silent: false,
 	});
 
 	if (watch) {
 		const watcher = await new Promise((resolve, reject) => {
-			gaze('src/assets/**/*.*', (err, val) => err ? reject(err) : resolve(val));
+			gaze(path.join(global.cwd,'src/assets/**/*.*'), (err, val) => err ? reject(err) : resolve(val));
 		});
 		watcher.on('changed', async (file) => {
-			const relPath = file.substr(path.join(__dirname, '../src/assets/').length);
-			await ncp(`src/assets/${relPath}`, `build/assets/${relPath}`);
+			const relPath = file.substr(path.join(global.cwd, 'src/assets/').length);
+			await ncp(path.join(global.cwd,`src/assets/${relPath}`), path.join(global.cwd,`build/assets/${relPath}`));
 		});
 	}
 }

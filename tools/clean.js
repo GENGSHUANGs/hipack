@@ -9,13 +9,13 @@
 
 import del from 'del';
 import fs from './lib/fs';
-
+import path from 'path';
 /**
  * Cleans up the output (build) directory.
  */
 async function clean() {
-	await del(['.tmp', 'build/*', '!build/.git'], { dot: true });
-	await fs.makeDir('build/assets');
+	await del([path.join(global.cwd,'.tmp'), path.join(global.cwd,'build/*'), path.join(global.cwd,'!build/.git')], { dot: true ,force:true});
+	await fs.makeDir(path.join(global.cwd,'build/assets'));
 }
 
 export default clean;
