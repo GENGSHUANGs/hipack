@@ -96,7 +96,7 @@ const config = {
 				// ),
 				loaders: [
 					'isomorphic-style-loader',
-					'css-loader?' + (DEBUG ? 'sourceMap&' : 'minimize&') + ('modules&localIdentName=' + (DEBUG ? '[name]_[local]_[hash:base64:3]' : 'hi[hash:base64:3]')),
+					'css-loader?' + (DEBUG ? 'sourceMap&' : 'minimize&') + ('modules&localIdentName=' + (DEBUG ? '[name]_[local]_[hash:base64:8]' : 'hi[hash:base64:8]')),
 					'postcss-loader',
 				],
 			}, {
