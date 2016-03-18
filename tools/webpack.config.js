@@ -6,13 +6,23 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE.txt file in the root directory of this source tree.
  */
-
+import fs from 'fs';
 import path from 'path';
 import webpack from 'webpack';
 import merge from 'lodash.merge';
 import AssetsPlugin from 'assets-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import colors from 'colors';
+
+const modulePath = path.resolve(global.cwd, 'node_modules/');
+let symbolicLinks = fs.readdirSync(modulePath)
+.map(name => path.join(modulePath,name))
+.filter((fpath) => fs.lstatSync(fpath).isSymbolicLink())
+.map(fpath => fs.realpathSync(fpath));
+console.log(colors.green('symbolic links in node_mobules are :'));
+symbolicLinks.forEach(fpath => console.log(colors.green(fpath)));
+
 
 const DEBUG = !process.argv.includes('--release');
 const VERBOSE = process.argv.includes('--verbose');
@@ -72,6 +82,7 @@ const config = {
 				include: [
 					path.resolve(global.cwd, 'node_modules/react-routing/src/'),
 					path.resolve(global.cwd, 'src/'),
+					... symbolicLinks,
 				],
 				loader: 'babel-loader'
 			}, {
