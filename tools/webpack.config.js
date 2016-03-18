@@ -87,7 +87,7 @@ const config = {
 				loader: 'babel-loader'
 			}, {
 				test: /\.scss$/,
-				include:symbolicLinks,
+				include:[path.resolve(global.cwd, 'src/'),...symbolicLinks],
 				loader: ExtractTextPlugin.extract(
 					'isomorphic-style-loader',
 					'css-loader?' + (DEBUG ? 'sourceMap&' : 'minimize&') +
@@ -96,19 +96,19 @@ const config = {
 				),
 			}, {
 				test: /\.json$/,
-				include:symbolicLinks,
+				include:[path.resolve(global.cwd, 'src/'),...symbolicLinks],
 				loader: 'json-loader',
 			}, {
 				test: /\.txt$/,
-				include:symbolicLinks,
+				include:[path.resolve(global.cwd, 'src/'),...symbolicLinks],
 				loader: 'raw-loader',
 			}, {
 				test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
-				include:symbolicLinks,
+				include:[path.resolve(global.cwd, 'src/'),...symbolicLinks],
 				loader: 'url-loader?limit=10000',
 			}, {
 				test: /\.(eot|ttf|wav|mp3)$/,
-				include:symbolicLinks,
+				include:[path.resolve(global.cwd, 'src/'),...symbolicLinks],
 				loader: 'file-loader',
 			},
 		],
