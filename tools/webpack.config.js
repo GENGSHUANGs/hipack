@@ -88,12 +88,17 @@ const config = {
 			}, {
 				test: /\.scss$/,
 				include:[path.resolve(global.cwd, 'src/'),...symbolicLinks],
-				loader: ExtractTextPlugin.extract(
+				// loader: ExtractTextPlugin.extract(
+				// 	'isomorphic-style-loader',
+				// 	'css-loader?' + (DEBUG ? 'sourceMap&' : 'minimize&') + ('modules&localIdentName=' + (DEBUG ? '[name]_[local]_[hash:base64:3]' : 'c[hash:base64:3]')),
+				// 	'postcss-loader',
+				// 	'style-loader',
+				// ),
+				loaders: [
 					'isomorphic-style-loader',
-					'css-loader?' + (DEBUG ? 'sourceMap&' : 'minimize&') +
-					'modules&localIdentName=[name]_[local]_[hash:base64:3]',
+					'css-loader?' + (DEBUG ? 'sourceMap&' : 'minimize&') + ('modules&localIdentName=' + (DEBUG ? '[name]_[local]_[hash:base64:3]' : 'hi[hash:base64:3]')),
 					'postcss-loader',
-				),
+				],
 			}, {
 				test: /\.json$/,
 				include:[path.resolve(global.cwd, 'src/'),...symbolicLinks],
