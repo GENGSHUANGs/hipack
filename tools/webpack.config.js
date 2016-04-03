@@ -17,9 +17,9 @@ import colors from 'colors';
 
 const modulePath = path.resolve(global.cwd, 'node_modules/');
 let symbolicLinks = fs.readdirSync(modulePath)
-.map(name => path.join(modulePath,name))
-.filter((fpath) => fs.lstatSync(fpath).isSymbolicLink())
-.map(fpath => fs.realpathSync(fpath));
+	.map(name => path.join(modulePath,name))
+	.filter((fpath) => fs.lstatSync(fpath).isSymbolicLink())
+	.map(fpath => fs.realpathSync(fpath));
 console.log(colors.green('symbolic links in node_mobules are :'));
 symbolicLinks.forEach(fpath => console.log(colors.green(fpath)));
 
@@ -136,7 +136,7 @@ const clientConfig = merge({}, config, {
 	entry: [path.join(global.cwd,'src/client.js')],
 	output: {
 		path: path.join(global.cwd, 'build/'),
-		filename: DEBUG ? '[name].js?[hash]' : '[name].[hash].js',
+		filename: DEBUG ? '[name].[hash].js' : '[name].[hash].js',
 	},
 
 	// Choose a developer tool to enhance debugging
@@ -144,7 +144,7 @@ const clientConfig = merge({}, config, {
 	devtool: DEBUG ? 'cheap-module-eval-source-map' : false,
 	plugins: [
 		new webpack.DefinePlugin(GLOBALS),
-		new ExtractTextPlugin(DEBUG ? '[name].css?[hash]' : '[name].[hash].css',{
+		new ExtractTextPlugin(DEBUG ? '[name].[hash].css' : '[name].[hash].css',{
 			remove:true
 		}),
 		new AssetsPlugin({
